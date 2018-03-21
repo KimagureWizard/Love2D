@@ -40,6 +40,7 @@ import android.widget.RelativeLayout;
 public class AdActivity extends GameActivity {
 	
 	private String appID = "INSERT-YOUR-APP-ID-HERE";
+	private String testDevice = "INSERT-YOUR-TEST-DEVICE-ID-HERE";
 	
 	private AdRequest adRequest;
 	
@@ -190,7 +191,7 @@ public class AdActivity extends GameActivity {
 						params.topMargin = metrics.heightPixels - adSize.getHeightInPixels(context);
 					}
 
-					adRequest = new AdRequest.Builder().build();
+					adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).addTestDevice(testDevice).build();
 					mAdView.loadAd(adRequest);
 
 					container.addView(mAdView, params);
@@ -273,7 +274,7 @@ public class AdActivity extends GameActivity {
 				mInterstitialAd = new InterstitialAd(mSingleton);
 				mInterstitialAd.setAdUnitId(adID);
 
-				AdRequest adRequest = new AdRequest.Builder().build();
+				AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).addTestDevice(testDevice).build();
 				mInterstitialAd.loadAd(adRequest);
 
 				mInterstitialAd.setAdListener(new AdListener()
@@ -388,7 +389,7 @@ public class AdActivity extends GameActivity {
 			@Override
 			public void run() 
 			{
-				 mRewardedAd.loadAd(adID, new AdRequest.Builder().build());
+				 mRewardedAd.loadAd(adID, new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).addTestDevice(testDevice).build());
 			}
 		});
 		
@@ -521,8 +522,3 @@ public class AdActivity extends GameActivity {
 		return rewardQty;
 	}
 }
-
-
-
-
-
