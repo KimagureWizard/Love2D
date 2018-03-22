@@ -162,6 +162,10 @@ gulp.task("make-android", function () {
 			resolve();
 		}));
 	}).then(new Promise(function(resolve, reject) {
+		if(conf.skipCompileOnAndroidMake) {
+			resolve();
+			return;
+		}
 		fs.copyFileSync("./dist/game.love", path.normalize(p) + "/app/src/main/assets/game.love");
 		let cmd = "cd \"" + p + "\" && \"" + p + "gradlew\" build";
 		console.log(cmd);
