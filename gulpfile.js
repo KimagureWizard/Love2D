@@ -167,7 +167,7 @@ gulp.task("make-android", function () {
 			resolve();
 			return;
 		}
-		let cmd = "cd \"" + p + "\" && \"" + p + "gradlew\" build";
+		let cmd = "cd \"" + path.normalize(p) + "\" && \"" + path.normalize("./") + "gradlew\" build";
 		console.log(cmd);
 		proc = exec(cmd);
 		proc.stdout.on('data', function (stdout) {
