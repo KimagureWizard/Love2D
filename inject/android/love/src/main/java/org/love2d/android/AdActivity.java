@@ -47,7 +47,7 @@ public class AdActivity extends GameActivity {
 	//Banner stuff
 	private AdView mAdView;
 	private boolean hasBanner = false;
-	private boolean bannerVisibile = false;
+	private boolean bannerVisible = false;
 	private boolean bannerHasFinishedLoading = false;
 	
 	//Interstitial stuff
@@ -201,7 +201,7 @@ public class AdActivity extends GameActivity {
 					mAdView.setAdListener(new AdListener(){
 						@Override
 						public void onAdLoaded() {
-							if (bannerVisibile)
+							if (bannerVisible)
 							{	
 								mAdView.setVisibility(View.GONE);
 								mAdView.setVisibility(View.VISIBLE);
@@ -210,7 +210,7 @@ public class AdActivity extends GameActivity {
 							{
 								mAdView.setVisibility(View.GONE);
 							}
-							Log.d("AdActivity","onAdLoaded: " + bannerVisibile);
+							Log.d("AdActivity","onAdLoaded: " + bannerVisible);
 							bannerHasFinishedLoading = true;
 						}
 					});
@@ -236,7 +236,7 @@ public class AdActivity extends GameActivity {
 					mAdView.setVisibility(View.GONE);
 					Log.d("AdActivity", "Banner Hidden");
 				}
-				bannerVisibile = false;
+				bannerVisible = false;
 			}
 		});
 	}
@@ -257,7 +257,7 @@ public class AdActivity extends GameActivity {
 					mAdView.setVisibility(View.VISIBLE);
 					Log.d("AdActivity", "Banner Showing");
 				}
-				bannerVisibile = true;
+				bannerVisible = true;
 			}
 		});
 	}
