@@ -62,6 +62,8 @@ namespace ads
 {
 	
 	
+	NSString * testDevice;
+	
 GADBannerView * bannerView;
 	
 GADInterstitial *interstitialAd;
@@ -74,6 +76,7 @@ VideoDelegate *videoDel;
 Ads::Ads()
 {
 	[GADMobileAds configureWithApplicationID:@"YOUR_ADMOB_APP_ID"];
+	testDevice = @"YOUR-TEST-DEVICE-ID";
 }
 	
 void Ads::test() const {
@@ -143,7 +146,7 @@ void Ads::createBanner(const char *adID, const char *position) {
 	bannerView.rootViewController = VC;
 	
 	GADRequest *request = [GADRequest request];
-
+	request.testDevices = @[ testDevice ];
 	
 	[bannerView loadRequest:request];
 	
@@ -193,6 +196,7 @@ void Ads::requestInterstitial(const char *adID) {
 	[interstitialDel initProperties];
 	
 	GADRequest *request = [GADRequest request];
+	request.testDevices = @[ testDevice ];
 	[interstitialAd loadRequest:request];
 	
 	return;
@@ -227,6 +231,7 @@ void Ads::requestRewardedAd(const char *adID) {
 	
 	
 	GADRequest *request = [GADRequest request];
+	request.testDevices = @[ testDevice ];
 	NSString *adUnitID = @(adID);
 	
 	videoAd.delegate = videoDel;
