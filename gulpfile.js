@@ -37,7 +37,6 @@ let plumber = require("gulp-plumber");
 let func = require("gulp-function");
 let clean = require("gulp-clean");
 let deleteFile = require("gulp-delete-file");
-let gulpSrcFiles= require("gulp-src-files");
 
 let luaminify = require("gulp-luaminify");
 let spritesmith = require("gulp.spritesmith");
