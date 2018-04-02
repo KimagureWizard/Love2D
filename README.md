@@ -17,7 +17,7 @@ npm install -g gulp
 npm install
 ```
 
-- Go to Preferences > Keyboard Shortcuts and paste this:
+- Go to Code/File > Preferences > Keyboard Shortcuts > Modify keybindings.json and paste this in the right window:
 
 ```json
 { "key": "ctrl+l", "command": "workbench.action.tasks.runTask", "args": "launch" },
