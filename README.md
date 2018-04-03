@@ -17,17 +17,17 @@ npm install -g gulp
 npm install
 ```
 
+- Configure your `.vscode/tasks.json` (launcher configuration) and `gulfconf.js` (build configuration) to point to the right directories. Toggle make-variables in your gulpconf for your target platforms. (Mac not supported yet, iOS will only copy files, not build) 
+
+- Install [Love2d Snippets](https://marketplace.visualstudio.com/items?itemName=pixelwar.love2dsnippets), which makes your life easier.
+
 - Go to Code/File > Preferences > Keyboard Shortcuts > Modify keybindings.json and paste this in the right window:
 
 ```json
 { "key": "ctrl+l", "command": "workbench.action.tasks.runTask", "args": "launch" },
 { "key": "cmd+l", "command": "workbench.action.tasks.runTask", "args": "launch" },
 ```
-(using a LÖVE launcher extension won't work, since it will expect the main.lua in the root directory)
-
-- Install [Love2d Snippets](https://marketplace.visualstudio.com/items?itemName=pixelwar.love2dsnippets), which makes your life easier.
-
-- Configure your `.vscode/tasks.json` (launcher configuration) and `gulfconf.js` (build configuration) to point to the right directories. Toggle make-variables in your gulpconf for your target platforms. (Mac not supported yet, iOS will only copy files, not build) 
+(Using a LÖVE launcher extension won't work, since it will expect the main.lua in the root directory. If you have any problems running the task, make sure you've set the correct path in your `.vscode/tasks.json`.)
 
 ## Tasks ##
 
