@@ -8,13 +8,13 @@ module.exports = {
 
 	"makeAndroid": false, // will copy .love file and injection files into the directory below and will run gradlew build on default build
 	"skipCompileOnAndroidMake": false, // will skip calling gradle build on making android
-	"loveAndroidDir": "/Users/marty/_my_/AS/love2d-admob-inappbilling-gameservices-android", // injection files will work with with the AdMob+InAppBilling+GameServices fork - not available yet
+	"loveAndroidDir": "/Users/marty/_my_/AS/love2d-admob-unityads-inappbilling-gameservices-android", // injection files will work with with the AdMob+InAppBilling+GameServices fork - not available yet
 
 	"makeMac": false, // won't work / not supported (sry, feel free to pull request)
 	"loveMacDir": "/Applications",
 
 	"makeiOS": false, // will copy .love file and injection files into the directory below on default build
-	"loveiOSDir": "/Users/marty/_my_/XC/love2d-admob-inapppurchases-gamecenter-ios", // injection files will work with with the AdMob+InAppPurchases+GameCenter fork - not available yet
+	"loveiOSDir": "/Users/marty/_my_/XC/love2d-admob-unityads-inapppurchases-gamecenter-ios", // injection files will work with with the AdMob+InAppPurchases+GameCenter fork - not available yet
 
 	"windows" : { // all paths above for Windows systems
 		"loveWinDir": "C:\\Program Files (x86)\\LOVE",
