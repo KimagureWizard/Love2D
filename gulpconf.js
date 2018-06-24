@@ -18,7 +18,7 @@ module.exports = {
 
 	"windows" : { // all paths above for Windows systems
 		"loveWinDir": "C:\\Program Files (x86)\\LOVE",
-		"loveAndroidDir": "Z:\\_my_\\AS\\love2d-admob-inappbilling-gameservices-android",
-		"loveiOSDir": "Z:\\_my_\\XC\\love2d-admob-inapppurchases-gamecenter-ios",
+		"loveAndroidDir": "Z:\\_my_\\AS\\love2d-admob-unityads-inappbilling-gameservices-android",
+		"loveiOSDir": "Z:\\_my_\\XC\\love2d-admob-unityads-inapppurchases-gamecenter-ios",
 	}
 }
