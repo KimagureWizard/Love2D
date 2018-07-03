@@ -22,6 +22,6 @@
 #define LOVE_CONFIG_UADS_H
 
 static const bool UADS_TEST_MODE = true;
-static const char *UADS_GAME_ID = "2627437"; // <- INSERT-YOUR-GAME-ID-HERE
+static const char *UADS_GAME_ID = "2627435"; // <- INSERT-YOUR-GAME-ID-HERE
 
 #endif // LOVE_CONFIG_UADS_H

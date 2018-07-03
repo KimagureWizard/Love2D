@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--<manifest package="org.love2d.android.executable"-->
-<manifest package="org.example.newgame"
+<manifest package="net.example.newgame"
       android:installLocation="auto" xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
@@ -16,12 +16,11 @@
       android:label="New Game"
       android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
 		<service android:name="org.love2d.android.DownloadService" />
-      <activity
-				android:name="org.love2d.android.AdActivity"
+      <activity android:name="org.love2d.android.RichGameActivity"
         android:configChanges="orientation|screenSize"
         android:label="New Game"
         android:launchMode="singleTop"
-        android:screenOrientation="landscape" >
+        android:screenOrientation="portrait" >
         <intent-filter>
           <action android:name="android.intent.action.MAIN" />
           <category android:name="android.intent.category.LAUNCHER" />

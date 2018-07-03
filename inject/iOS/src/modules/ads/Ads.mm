@@ -75,12 +75,12 @@ VideoDelegate *videoDel;
 		
 Ads::Ads()
 {
-	[GADMobileAds configureWithApplicationID:@"YOUR_ADMOB_APP_ID"];
-	testDevice = @"YOUR-TEST-DEVICE-ID";
+	[GADMobileAds configureWithApplicationID:@"INSERT-YOUR-APP-ID-HERE"];
+	testDevice = @"INSERT-YOUR-TEST-DEVICE-ID-HERE";
 }
 	
 void Ads::test() const {
-	printf("ADS_TEST\n");
+	//printf("ADS_TEST\n");
 }
 	
 UIViewController * Ads::getRootViewController()
