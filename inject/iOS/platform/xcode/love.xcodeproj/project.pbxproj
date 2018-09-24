@@ -130,6 +130,7 @@
 		3516D7E01F1E4CAB006DF1F0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		3516D7E21F1E4CCA006DF1F0 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
 		3516D7E41F1E4CD8006DF1F0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		40047C1C2159563600F10544 /* love.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = love.entitlements; sourceTree = "<group>"; };
 		406B664A20D7D5E900513FD2 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityAds.framework; sourceTree = "<group>"; };
 		406B665520D802D000513FD2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		406B665720D802F400513FD2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
@@ -255,6 +256,7 @@
 		29B97314FDCFA39411CA2CEA /* love */ = {
 			isa = PBXGroup;
 			children = (
+				40047C1C2159563600F10544 /* love.entitlements */,
 				3516D7C01F1E3953006DF1F0 /* game.love */,
 				FA5D249A1A96CF4300C6FC8F /* Images.xcassets */,
 				FA577A9D16C7262E00860150 /* Source */,
@@ -389,6 +391,14 @@
 			attributes = {
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
+					8D1107260486CEB800E47090 = {
+						DevelopmentTeam = B3PF68G5KH;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					FA0B7F051A95AAF3000E1D17 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = B3PF68G5KH;
@@ -504,7 +514,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "OS X AppIcon";
+				CODE_SIGN_ENTITLEMENTS = love.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B3PF68G5KH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Library/Frameworks,
@@ -532,6 +544,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "OS X AppIcon";
+				CODE_SIGN_ENTITLEMENTS = love.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -890,6 +903,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "OS X AppIcon";
+				CODE_SIGN_ENTITLEMENTS = love.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (

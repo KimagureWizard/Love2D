@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.lang.reflect.Method;
 
 import android.app.Activity;
 import android.app.DownloadManager;
@@ -36,6 +37,7 @@ import android.widget.Toast;
 import android.view.*;
 import android.content.pm.PackageManager;
 import android.widget.RelativeLayout;
+import android.graphics.Point;
 
 public class AdActivity extends GameActivity {
 	
@@ -94,6 +96,11 @@ public class AdActivity extends GameActivity {
 			{
 				Log.d("AdActivity","onRewardedVideoAdFailedToLoad: Error " + errorCode);
 				rewardedAdDidFailToLoad = true;
+			}
+
+			@Override
+			public void onRewardedVideoCompleted() 
+			{				
 			}
 			
 			@Override
@@ -182,13 +189,41 @@ public class AdActivity extends GameActivity {
 					mAdView.setAdSize(AdSize.SMART_BANNER);
 			
 					AdSize adSize = mAdView.getAdSize();
+					Display display = ((Activity) getContext()).getWindowManager().getDefaultDisplay();
+					int realWidth;
+					int realHeight;
+
+					if (Build.VERSION.SDK_INT >= 17){
+						Point size = new Point();
+						display.getRealSize(size);
+						realWidth = size.x;
+						realHeight = size.y;
+					} else if (Build.VERSION.SDK_INT >= 14) {
+						//reflection for this weird in-between time
+						try {
+							Method mGetRawH = Display.class.getMethod("getRawHeight");
+							Method mGetRawW = Display.class.getMethod("getRawWidth");
+							realWidth = (Integer) mGetRawW.invoke(display);
+							realHeight = (Integer) mGetRawH.invoke(display);
+						} catch (Exception e) {
+							//this may not be 100% accurate, but it's all we've got
+							realWidth = display.getWidth();
+							realHeight = display.getHeight();
+							Log.e("Display Info", "Couldn't use reflection to get the real display metrics.");
+						}
+
+					} else {
+						//This should be close, as lower API devices should not have window navigation bars
+						realWidth = display.getWidth();
+						realHeight = display.getHeight();
+					}
 
 					RelativeLayout container = new RelativeLayout(mSingleton);
 					RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 
-					params.leftMargin = (metrics.widthPixels/2) - (adSize.getWidthInPixels(context)/2);
+					params.leftMargin = (realWidth/2) - (adSize.getWidthInPixels(context)/2);
 					if (position.trim().equals("bottom")) {
-						params.topMargin = metrics.heightPixels - adSize.getHeightInPixels(context);
+						params.topMargin = realHeight - adSize.getHeightInPixels(context);
 					}
 
 					adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).addTestDevice(testDevice).build();
